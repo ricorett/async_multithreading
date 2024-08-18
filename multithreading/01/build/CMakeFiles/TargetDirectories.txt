@@ -1,0 +1,3 @@
+/Users/lana/Desktop/reset/нетология/async_multithread/01/build/CMakeFiles/queryExe.dir
+/Users/lana/Desktop/reset/нетология/async_multithread/01/build/CMakeFiles/edit_cache.dir
+/Users/lana/Desktop/reset/нетология/async_multithread/01/build/CMakeFiles/rebuild_cache.dir
