@@ -1,8 +1,0 @@
-[
-{
-  "directory": "/Users/lana/Desktop/reset/нетология/async_multithread/02/build",
-  "command": "/Library/Developer/CommandLineTools/usr/bin/c++   -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/thread_vecExe.dir/main.cpp.o -c /Users/lana/Desktop/reset/нетология/async_multithread/02/main.cpp",
-  "file": "/Users/lana/Desktop/reset/нетология/async_multithread/02/main.cpp",
-  "output": "CMakeFiles/thread_vecExe.dir/main.cpp.o"
-}
-]

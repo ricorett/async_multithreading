@@ -1,3 +1,0 @@
-/Users/lana/Desktop/reset/нетология/async_multithread/02/build/CMakeFiles/thread_vecExe.dir
-/Users/lana/Desktop/reset/нетология/async_multithread/02/build/CMakeFiles/edit_cache.dir
-/Users/lana/Desktop/reset/нетология/async_multithread/02/build/CMakeFiles/rebuild_cache.dir
