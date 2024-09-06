@@ -1,6 +1,5 @@
 #include "header.h"
 
-
 void swap_lock(Data &data1, Data &data2) {
   std::lock(data1.mtx, data2.mtx);
 
