@@ -1,11 +1,8 @@
 #include "header.h"
 std::mutex print_mutex;
 
-void setCursorPosition(int x, int y) {
-    COORD coord;
-    coord.X = x;
-    coord.Y = y;
-    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+void setCursorPosition(int row, int col) {
+    std::cout << "\033[" << row << ";" << col << "H" << std::flush;
 }
 
 void calculate(int thread_num, int total_length, int y_position) {
@@ -24,7 +21,7 @@ void calculate(int thread_num, int total_length, int y_position) {
         progress_bar[i] = '#';
         {
             std::lock_guard<std::mutex> lock(print_mutex);
-            setCursorPosition(0, y_position);
+            setCursorPosition(y_position, 0);
             std::cout << "Thread " << thread_num << " [" << this_id << "] ["
                       << progress_bar << "]" << std::flush;
         }
@@ -35,7 +32,7 @@ void calculate(int thread_num, int total_length, int y_position) {
 
     {
         std::lock_guard<std::mutex> lock(print_mutex);
-        setCursorPosition(0, y_position);
+        setCursorPosition(y_position, 0);
         std::cout << "Thread " << thread_num << " [" << this_id
                   << "] finished in " << std::fixed << std::setprecision(2)
                   << duration.count() << " seconds." << std::endl;
@@ -53,13 +50,17 @@ int main() {
 
     std::vector<std::thread> threads;
 
+    std::cout << "\033[2J\033[?25l" << std::flush;
+
     for (int i = 0; i < num_threads; ++i) {
-        threads.emplace_back(calculate, i + 1, total_length, i);
+        threads.emplace_back(calculate, i + 1, total_length, i + 1);
     }
 
     for (auto &t : threads) {
         t.join();
     }
+
+    std::cout << "\033[?25h" << std::flush;
     std::cout << "All threads have finished their work.\n";
 
     return 0;
